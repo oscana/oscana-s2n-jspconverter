@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.*"%>
+<%@ page import="java.io.*","java.awt.*" %>
+<title>^=tag test ^tag</title>
+</head>
+<body>
+<s:form enctype="multipart/form-data">
+  <bean:cookie id="sess" name="JSESSIONID" value="JSESSIONID-IS-UNDEFINED" />
+  <bean:cookie id="sess" name="<%=JSESSIONID%>" value="JSESSIONID-IS-UNDEFINED" />
+
+  <bean:cookie id="sess" name="\\JSESSIONID\\" value="JSESSIONID-IS-UNDEFINED" />
+  <!-- TokenMgr.procLargeThan(int, StringBuilder, PushbackReader) -->
+  <bean:cookie id="sess" name="test" value="JSESSIONID-IS-UNDEFINED" >=fsd</bean:cookie>
+  <s:submit property="submit" clientValidate="true">"\\test\\"</s:submit>
+  <s:submit property="submit" clientValidate="true">'\\test'</s:submit>
+</s:form>
+<!-- TokenMgr.procNumeric(int, StringBuilder, PushbackReader) のTEST -->
+.00+3-1b-2B+2b-2E+1+2-1e-1.2-2+1e+b+1E+B+2sb+1SB+4.5+2B+2b+2D+1d+2Q+2B+2b+1q+2L+0..1240
+<!-- TokenMgr.procLessThan(int, StringBuilder, PushbackReader) -->
+<=-- test --=>
+<%-d test --%>
+<!-- TokenMgr.procJspComment(StringBuilder, PushbackReader) -->
+<%-- test --%>
+<%--- test ---%%>
+<%-----test--%>
+<!-- TokenMgr.procOr(int, StringBuilder, PushbackReader) -->
+|TEST
+||T
+<!-- TokenMgr.procSingleQuote(int, StringBuilder, PushbackReader, int) -->
+'\\test'
+\r<a>:</a>;
+<!-- TokenMgr.procAster(int, StringBuilder, PushbackReader) -->
+**TEST
+*TEST
+</body>
+</html>
