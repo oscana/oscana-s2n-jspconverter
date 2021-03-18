@@ -144,7 +144,7 @@ public class ReadProfileTest {
             // 出力メッセージを確認
             System.err.flush();
             final String actual = byteArrayOutputStream.toString();
-            final String expected = "エラー:fileEncordingは必須です。";
+            final String expected = "エラー:fileEncodingは必須です。";
             assertEquals(expected, actual);
 
         } catch (Exception e) {

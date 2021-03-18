@@ -640,7 +640,7 @@ public abstract class TagConvertBase {
         Reader fileReader = null;
         CSVReader csvReader = null;
         try {
-            fileReader = new InputStreamReader( ClassLoader.getSystemResourceAsStream(fileName));
+            fileReader = new InputStreamReader( ClassLoader.getSystemResourceAsStream(fileName), "UTF-8");
             csvReader = new CSVReader(fileReader);
             List<String[]> records = csvReader.readAll();
             for (String[] rec : records) {

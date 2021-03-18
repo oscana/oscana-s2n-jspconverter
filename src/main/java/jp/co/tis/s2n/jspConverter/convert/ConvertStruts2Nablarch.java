@@ -39,7 +39,8 @@ import jp.co.tis.s2n.jspConverter.token.Token;
  */
 public class ConvertStruts2Nablarch extends AbstractBatchBase {
 
-    private static final String XENLON_S2N_CONVERT_STRUTS_JSP_TAGLIB_INJECT_PARTS_VM = "templete/StrutsJSPTaglibInjectParts.vm";
+    private static final String S2N_CONVERT_SASTRUTS_JSP_TAGLIB_INJECT_PARTS_VM = "templete/SAStrutsJSPTaglibInjectParts.vm";
+    private static final String S2N_CONVERT_STRUTS_JSP_TAGLIB_INJECT_PARTS_VM = "templete/StrutsJSPTaglibInjectParts.vm";
 
     public static final String[] NESTED_TRG = { "bean", "html", "logic" };
     public static final String NESTED_TAG_KEY = "nested";
@@ -104,7 +105,7 @@ public class ConvertStruts2Nablarch extends AbstractBatchBase {
         ConvertStruts2Nablarch parserJava = new ConvertStruts2Nablarch();
         parserJava.setActiveProfile(activeProfile);
 
-        parserJava.setCodeName(activeProfile.getFileEncording());
+        parserJava.setCodeName(activeProfile.getFileEncoding());
         parserJava.setInPath(projectPath + "jsp" + sp + "from");
         parserJava.setOutPath(projectPath + "jsp" + sp + "to");
 
@@ -225,7 +226,14 @@ public class ConvertStruts2Nablarch extends AbstractBatchBase {
         }
 
         VelocityContext context = new VelocityContext();
-        String sw = mergeVelocityTemplate(XENLON_S2N_CONVERT_STRUTS_JSP_TAGLIB_INJECT_PARTS_VM, context);
+
+        String sw = null;
+        if (activeProfile.getConvertMode() == S2nProfile.CONVERT_MODE_STRUTS) {
+            sw = mergeVelocityTemplate(S2N_CONVERT_STRUTS_JSP_TAGLIB_INJECT_PARTS_VM, context);
+        } else {
+            sw = mergeVelocityTemplate(S2N_CONVERT_SASTRUTS_JSP_TAGLIB_INJECT_PARTS_VM, context);
+        }
+
         if (findList.size() > 0) {
             Node page = findList.get(0);
             page.getParent().getChildren().add(insertPos, Node.create(Node.T_NORMAL, sw));

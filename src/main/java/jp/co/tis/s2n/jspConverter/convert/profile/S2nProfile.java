@@ -19,6 +19,10 @@ import jp.co.tis.s2n.converterCommon.struts.analyzer.StrutsAnalyzer;
  */
 public class S2nProfile {
 
+    public static final int CONVERT_MODE_STRUTS = 1;
+    public static final int CONVERT_MODE_SASTRUTS = 2;
+    public static final int CONVERT_MODE_XENLON = 3;
+
     private String projectPath;
     private String headerPath;
     private String footerPath;
@@ -26,7 +30,7 @@ public class S2nProfile {
     private String basePackage;
     private String testDeployPath;
     private StrutsAnalyzeResult[] strutsAnalyzeResultList;
-    private String fileEncording;
+    private String fileEncoding;
     private int convertMode;
     private String paramNamePrefix;
 
@@ -76,12 +80,12 @@ public class S2nProfile {
             } else {
                 this.setBasePackage(prop.getProperty("basePackage"));
             }
-            // fileEncording
-            if (StringUtils.isEmpty(prop.getProperty("fileEncording"))) {
-                System.err.print("エラー:fileEncordingは必須です。");
+            // fileEncoding
+            if (StringUtils.isEmpty(prop.getProperty("fileEncoding"))) {
+                System.err.print("エラー:fileEncodingは必須です。");
                 System.exit(-1);
             } else {
-                this.setFileEncording(prop.getProperty("fileEncording"));
+                this.setFileEncoding(prop.getProperty("fileEncoding"));
             }
             // convertMode
             if (StringUtils.isEmpty(prop.getProperty("convertMode"))) {
@@ -254,16 +258,16 @@ public class S2nProfile {
      * ファイルエンコーディングを取得する。
      * @return ファイルエンコーディング
      */
-    public String getFileEncording() {
-        return fileEncording;
+    public String getFileEncoding() {
+        return fileEncoding;
     }
 
     /**
      * ファイルエンコーディングを設定する。
-     * @param fileEncording ファイルエンコーディング
+     * @param fileEncoding ファイルエンコーディング
      */
-    public void setFileEncording(String fileEncording) {
-        this.fileEncording = fileEncording;
+    public void setFileEncoding(String fileEncoding) {
+        this.fileEncoding = fileEncoding;
     }
 
     /**
