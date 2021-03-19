@@ -10,6 +10,9 @@
 <%@ taglib prefix="f" uri="https://github.com/oscana/oscana-s2n-runtime-sastruts" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://www.x.y" prefix="example" %>
+
+<title>^=tag test ^tag</title>
 </head>
 <body>
 <n:form enctype="multipart/form-data">
@@ -24,8 +27,9 @@
 <%-- // TODO ツールで変換できません 未サポート属性：clientValidate="true"  --%>
   <n:submit type="submit" uri="submit" value="'\\test'"  />
 </n:form>
+<a:b/>
 <!-- TokenMgr.procNumeric(int, StringBuilder, PushbackReader) のTEST -->
-.00+3-1b-2B+2b-2E+1+2-1e-1.2-2+1e+b+1E+B+2sb+1SB+4.5+2B+2b+2D+1d+2Q+2B+2b+1q+2L+0..1240
+.00+3-1b-2B+2b-2E+1+2-1e-1.2-2+1e+b+1E+B+2sb+1SB+4.5+2B+2b+2D+1d+2Q+2B+2b+1q+2L+0..1240_$
 <!-- TokenMgr.procLessThan(int, StringBuilder, PushbackReader) -->
 <=-- test --=>
 <%-d test --%>
@@ -43,5 +47,28 @@
 **TEST
 *TEST
 <n:submit type="submit" uri="submit" value="< test >test"  />
-</body>
-</html>
+
+$$b:x<br>
+__a.c<br>
+@@c_c<br>
+/**
+
+
+
+ */
+ //test■.
+■,
+■:
+■;
+■>
+■(
+■)
+■
+[aa]
+{x}
+}ss
+]cc
+123.33_33
+..003
+/*
+/**/
