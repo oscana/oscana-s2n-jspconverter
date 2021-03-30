@@ -1,1 +1,1 @@
-# s2n-jspconverter
+# oscana-s2n-jspconverter
